@@ -13,7 +13,7 @@
 
           <!--  -->
           
-          <router-link class="list-group-item" active-class="active" :to="{name:'guanyu'}">About</router-link>
+          <router-link class="list-group-item" active-class="active" :to="{path:'/about'}">About</router-link>
           <br>
           <router-link class="list-group-item" active-class="active" to="/home">home</router-link>
         </div>
