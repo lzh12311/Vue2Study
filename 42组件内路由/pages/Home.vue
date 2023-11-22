@@ -6,15 +6,17 @@
         <div>
             <ul class="nav nav-tabs">
                 <li>
-                    <router-link replace class="list-group-item " active-class="active" to="/home/news">News</router-link>
+                    <router-link class="list-group-item " active-class="active" to="/home/news">News</router-link>
                 </li>
                 <li>
-                    <router-link replace class="list-group-item " active-class="active"
-                        to="/home/message">Message</router-link>
+                    <router-link class="list-group-item " active-class="active" to="/home/message">Message</router-link>
                 </li>
             </ul>
             <hr>
-            <KeepAlive>
+            <!-- <KeepAlive :include="['News','Detail']"> -->
+            <!-- 缓存的是组件名字 不是其他的 -->
+
+            <KeepAlive :include="['News']">
                 <router-view></router-view>
             </KeepAlive>
         </div>
@@ -30,6 +32,9 @@ export default {
         console.log('123', this)
         window.homeRoute = this.$route
         window.homeRouter = this.$router
+        window.localStorage.setItem('school', 'atguigu');
+
+1
     }
 }
 </script>

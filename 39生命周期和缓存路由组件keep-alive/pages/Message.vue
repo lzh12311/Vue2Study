@@ -23,7 +23,7 @@
                 <!-- 这是跳转路由的基本写法，携带params参数 to的对象写法 -->
 
                 <!-- 替换当前栈顶的元素， 栈顶以前的元素没有replace 还是没有replace -->
-                <router-link replace :to="{
+                <!-- <router-link replace :to="{
                     name:'xiangqing',
                     query:{
                         id: m.id,
@@ -31,7 +31,12 @@
                     }
                 }">
                     {{ m.title }}
-                </router-link>
+                </router-link> -->
+                {{m.title}}
+                <!-- 编程式 路由 不再使用router link来跳转页面  而是使用push 或者replace -->
+                <button @click="pushShow(m)">pushCheck</button>
+                <button @click="replaceShow(m)">replaceCheck</button>
+
                 <!-- params 情况下, 只能使用name -->
             </li>
 
@@ -55,6 +60,34 @@ export default {
                 { id: '003', title: '消息003' },
             ]
         }
+    },
+    beforeDestroy(){
+        console.log('message destory')
+    },
+    methods:{
+        // 自己实现的 前进和后退
+        pushShow(m){
+            this.$router.push({
+                name:'xiangqing',
+                    query:{
+                        id: m.id,
+                        title: m.title
+                    }
+            })
+        },
+        replaceShow(m){
+            this.$router.replace({
+                name:'xiangqing',
+                    query:{
+                        id: m.id,
+                        title: m.title
+                    }
+            })
+        },
+        goMethod(){
+            this.$router.go(3)
+        },
+        
     }
 }
 </script>

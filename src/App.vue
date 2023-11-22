@@ -1,45 +1,28 @@
 <template>
   <div id="app">
-    <div class="row">
-     <Banner/>
-    </div>
-    <div class="row">
-      <div class="col-xs-2 col-xs-offset-2">
-        <div class="list-group">
-          原始html中使用a 标签实现跳转
-          <!-- <a class="list-group-item active" href="./about.html">About</a> -->
-          <br>
-          <!-- <a class="list-group-item" href="./home.html">home</a> -->
+    <button>原生</button>
+    <input type="text">
+    <el-row>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="success">成功按钮</el-button>
+      <el-button type="info">信息按钮</el-button>
+      <el-button type="warning">警告按钮</el-button>
+      <el-button type="danger">危险按钮</el-button>
+    </el-row>
 
-          <!--  -->
-          
-          <router-link class="list-group-item" active-class="active" :to="{name:'guanyu'}">About</router-link>
-          <br>
-          <router-link class="list-group-item" active-class="active" to="/home">home</router-link>
-        </div>
-        <div class="col-xs-6">
-          <div class="panel">
-            <div class="panel-body">
-              <!-- router-link 来实现路由的切换 
-                    router-view 来呈现页面
-              -->
-              <router-view></router-view>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <el-date-picker
+      v-model="value1"
+      type="date"
+      placeholder="选择日期">
+    </el-date-picker>
+    
   </div>
 </template>
 
 <script>
-// import { Router } from 'express';
-import Banner from './components/Banner.vue'
-
 export default {
-    name: "App",
-    components: { Banner }
+  name: "App",
 }
 </script>
 
